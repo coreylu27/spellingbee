@@ -49,9 +49,10 @@ def find_one_valid_game(points):
     minimum_points = points
 
     game_letters, center_letter = get_one_game()
-    print(f"Game letters: {''.join(game_letters)}, Center letter: {center_letter}")
-    max_score, _ = getMaxScore(game_letters, center_letter)
-    print(f"Max score: {max_score}")
-    printWords(game_letters, center_letter)
 
-find_one_valid_game(400)
+    # print(f"Game letters: {''.join(game_letters)}, Center letter: {center_letter}")
+    # max_score, _ = getMaxScore(game_letters, center_letter)
+    # print(f"Max score: {max_score}")
+    # printWords(game_letters, center_letter)
+
+    return game_letters, center_letter
