@@ -20,5 +20,9 @@ def getScore(word: str, letters: set, center_letter: str):
         word_letters.issubset(letters)
     ):
         score = 1 if len(word) == 4 else len(word)
+
+        if pangram:
+            score += 7
+
         return score, pangram
     return 0, False
