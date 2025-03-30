@@ -15,10 +15,11 @@ def get_one_game():
     while True:
         center_letter, game = generate_random_game()
         if checkValidGame(game, center_letter):
+            print("Found!")
             return game, center_letter
 
 def generate_random_game():
-    game = set(random.choices(letters, k=7))
+    game = set(random.sample(letters, k=7))
     center_letter = random.choice(list(game))
     return center_letter, game
 
@@ -26,7 +27,7 @@ def getMaxScore(game_letters: set, center_letter: str):
     score = 0
     pangram_found = False
     for word in word_list:
-        word_score, is_pangram = w.getScore(word, game_letters, center_letter)
+        word_score, is_pangram = w.getScoreAdvanced(word, game_letters, center_letter)
         score += word_score
         if is_pangram:
             pangram_found = True
@@ -35,7 +36,7 @@ def getMaxScore(game_letters: set, center_letter: str):
 def printWords(game_letters: set, center_letter: str):
     valid_words = []
     for word in word_list:
-        score, _ = w.getScore(word, game_letters, center_letter)
+        score, _ = w.getScoreAdvanced(word, game_letters, center_letter)
         if score > 0:
             valid_words.append((word, score))
 
@@ -56,3 +57,5 @@ def find_one_valid_game(points):
     # printWords(game_letters, center_letter)
 
     return game_letters, center_letter
+
+# print(find_one_valid_game(200))
